@@ -299,4 +299,55 @@ addAnotherList.addEventListener("click", addList);
     }
 }
 
+//local storage
+// const data = [];
+// function dataForLocalStorage() {
+//     data.length = 0;
+//     const all_column = document.querySelectorAll(".list");
+
+//     all_column.forEach((column, index) => {
+//         const title = column.querySelector(".list-title").textContent;
+//         const cardItems = column.querySelectorAll(".card");
+//         const cardItemsContent = [];
+
+//         cardItems.forEach((item) => {
+//             return cardItemsContent.push(item.textContent);
+//         });
+//         data.push({ index: index, title: title, items: cardItemsContent });
+//     });
+//     localStorage.setItem("data", JSON.stringify(data));
+// }
+
+// window.addEventListener("load", function () {
+//     const dataFromStorage = localStorage.getItem("data");
+//     console.log(dataFromStorage);
+//     const parsedData = JSON.parse(dataFromStorage);
+//     const columns = document.querySelectorAll(".list");
+
+//     parsedData.forEach((column, index) => {
+//         const currAddACard = columns.item(index).querySelector(".add-card-template");
+//         column.items.forEach(item => {
+//             const itemDiv = document.createElement("div");
+//             itemDiv.innerHTML = `<div class="card card-class" draggable="true"><p class="card-content" style="cursor: pointer;">${item}</p><img src="images/close-icon.png" class="close-icon close-icon-card"></div>`;
+//             columns.item(index).insertBefore(itemDiv, currAddACard);
+//         })
+        
+
+        // const removeCards = document.querySelectorAll(".close-icon-card");
+        // let cards = document.querySelectorAll(".card");
+        // removeCards.forEach(removeCard => {
+        //     removeCard.addEventListener("click", () => {
+        //         cards.forEach(card => {
+        //             card.onclick = () => {
+        //                 card.style.display = "none";
+        //             }
+                    
+        //         })
+        //     });
+        // });
+
+
+//     })
+    
+// })
 });
