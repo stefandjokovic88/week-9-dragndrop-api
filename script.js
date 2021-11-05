@@ -1,32 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // const addCardTemplate = document.querySelectorAll(".add-card-template");
-    // const addCard = document.querySelectorAll(".add-card");
-    // const card = document.querySelectorAll(".card");
-    // const card = document.querySelector(".card");
-    // const cards = document.querySelectorAll(".cards");
-    // const cardTemplate = document.querySelector(".card-template");
-    // const input = document.getElementById("card-template-input");
-    // const close = document.querySelector(".close");
-    // const addAnotherList = document.querySelector(".add-another-list");
-    // const list = document.querySelector(".list");
-    // const list = document.querySelector(".list");
-    // const lists = document.querySelector(".lists");
-    // const listAndButtonTemplate = document.querySelector(".list-and-button-template");
-    // const addAnotherList = document.querySelector(".add-another-list");
 //add another list
 const addAnotherList = document.querySelector(".add-another-list");
 
 function addList() {
     const lists = document.querySelector(".lists");
-    // const listAndButtonTemplate = document.querySelector(".list-and-button-template");
-    // const lists = document.querySelector(".lists");
-
-    // listAndButtonTemplate.style.display = "flex";
-    // var cloneList = listAndButtonTemplate.cloneNode(true);
-    // lists.appendChild(cloneList);
-    // listAndButtonTemplate.style.display = "none";
-
     var listCont = document.createElement("div");
     listCont.classList.add("list-and-button");
     listCont.innerHTML = `
@@ -112,8 +90,6 @@ addAnotherList.addEventListener("click", addList);
 
     close.addEventListener("click", closeCardTemplate);
 
-    
-
 //add card
     const addCard = document.querySelectorAll(".add-card");
      addCard.forEach(button => {
@@ -133,7 +109,6 @@ addAnotherList.addEventListener("click", addList);
             //create div card
                 const newDiv = document.createElement("div");
                 newDiv.classList.add("card");
-                // newDiv.innerHTML = input.value;
                 newDiv.draggable = "true";
                 newDiv.classList.add("card-class");
             //create card content in card
@@ -152,7 +127,6 @@ addAnotherList.addEventListener("click", addList);
                 listContainer.appendChild(newDiv);
                 cardTemplate.style.display = "none";
                 input.value = "";
-                // dataForLocalStorage();
             }
     
         moveCard();
@@ -176,7 +150,6 @@ addAnotherList.addEventListener("click", addList);
                         listTitle.innerHTML = modalInput.value;
                         modal.style.display = "none"; 
                         modalInput.value = "";
-                        // dataForLocalStorage();
                     }
                     
                 }
@@ -194,7 +167,6 @@ addAnotherList.addEventListener("click", addList);
                 listAndButtons.forEach(listAndButton => {
                     listAndButton.onclick = () => {
                         listAndButton.style.display = "none";
-                        // dataForLocalStorage();
                     }
                     
                 })
@@ -325,58 +297,6 @@ addAnotherList.addEventListener("click", addList);
             modal.style.display = "none";
         } 
     }
-    // dataForLocalStorage();
 }
 
-//local storage
-// const data = [];
-// function dataForLocalStorage() {
-//     data.length = 0;
-//     const all_column = document.querySelectorAll(".list");
-
-//     all_column.forEach((column, index) => {
-//         const title = column.querySelector(".list-title").textContent;
-//         const cardItems = column.querySelectorAll(".card");
-//         const cardItemsContent = [];
-
-//         cardItems.forEach((item) => {
-//             return cardItemsContent.push(item.textContent);
-//         });
-//         data.push({ index: index, title: title, items: cardItemsContent });
-//     });
-//     localStorage.setItem("data", JSON.stringify(data));
-// }
-
-// window.addEventListener("load", function () {
-//     const dataFromStorage = localStorage.getItem("data");
-//     console.log(dataFromStorage);
-//     const parsedData = JSON.parse(dataFromStorage);
-//     const columns = document.querySelectorAll(".list");
-
-//     parsedData.forEach((column, index) => {
-//         const currAddACard = columns.item(index).querySelector(".add-card-template");
-//         column.items.forEach(item => {
-//             const itemDiv = document.createElement("div");
-//             itemDiv.innerHTML = `<div class="card card-class" draggable="true"><p class="card-content" style="cursor: pointer;">${item}</p><img src="images/close-icon.png" class="close-icon close-icon-card"></div>`;
-//             columns.item(index).insertBefore(itemDiv, currAddACard);
-//         })
-        
-
-        // const removeCards = document.querySelectorAll(".close-icon-card");
-        // let cards = document.querySelectorAll(".card");
-        // removeCards.forEach(removeCard => {
-        //     removeCard.addEventListener("click", () => {
-        //         cards.forEach(card => {
-        //             card.onclick = () => {
-        //                 card.style.display = "none";
-        //             }
-                    
-        //         })
-        //     });
-        // });
-
-
-//     })
-    
-// })
 });
