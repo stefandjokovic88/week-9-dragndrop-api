@@ -27,7 +27,6 @@ function addList() {
     // lists.appendChild(cloneList);
     // listAndButtonTemplate.style.display = "none";
 
-
     var listCont = document.createElement("div");
     listCont.classList.add("list-and-button");
     listCont.innerHTML = `
@@ -39,9 +38,7 @@ function addList() {
             </div>
         </div>
     </div>
-    <button class="add-card-template">+ Add a card</button>   
-        
-    `;
+    <button class="add-card-template">+ Add a card</button>`;
     lists.appendChild(listCont);
 
 //call show card template
@@ -83,6 +80,7 @@ removeIcons.forEach(removeIcon => {
         })
     });
 });
+
 }
 addAnotherList.addEventListener("click", addList);
 
@@ -125,28 +123,38 @@ addAnotherList.addEventListener("click", addList);
     const input = document.getElementById("card-template-input");
     function addingCards(event) {
         const listContainer = event.target.parentElement.parentElement.parentElement.childNodes[1];
-    //create div card
-        const newDiv = document.createElement("div");
-        newDiv.classList.add("card");
-        // newDiv.innerHTML = input.value;
-        newDiv.draggable = "true";
-        newDiv.classList.add("card-class");
-    //create card content in card
-        const newDivP = document.createElement("p");
-        newDivP.classList.add("card-content");
-        newDivP.style.cursor = "pointer";
-        newDiv.appendChild(newDivP);
-        newDivP.innerHTML = input.value;
-    //create close icon in card
-        const newDivImg = document.createElement("img");
-        newDivImg.src = "images/close-icon.png";
-        newDivImg.classList.add("close-icon");
-        newDivImg.classList.add("close-icon-card");
-        newDiv.appendChild(newDivImg);
+    
+        
 
-        listContainer.appendChild(newDiv);
-        cardTemplate.style.display = "none";
-        input.value = "";
+        if (input.value == "") {
+            alert("Enter card name!");
+        }
+            else {
+            //create div card
+                const newDiv = document.createElement("div");
+                newDiv.classList.add("card");
+                // newDiv.innerHTML = input.value;
+                newDiv.draggable = "true";
+                newDiv.classList.add("card-class");
+            //create card content in card
+                const newDivP = document.createElement("p");
+                newDivP.classList.add("card-content");
+                newDivP.style.cursor = "pointer";
+                newDiv.appendChild(newDivP);
+                newDivP.innerHTML = input.value;
+            //create close icon in card
+                const newDivImg = document.createElement("img");
+                newDivImg.src = "images/close-icon.png";
+                newDivImg.classList.add("close-icon");
+                newDivImg.classList.add("close-icon-card");
+                newDiv.appendChild(newDivImg);
+
+                listContainer.appendChild(newDiv);
+                cardTemplate.style.display = "none";
+                input.value = "";
+                // dataForLocalStorage();
+            }
+    
         moveCard();
     }
 
@@ -161,9 +169,16 @@ addAnotherList.addEventListener("click", addList);
             listTitle.addEventListener("click", () => {
                 modal.style.display = "flex";
                 saveBtn.onclick = () => {
-                    listTitle.innerHTML = modalInput.value;
-                    modal.style.display = "none"; 
-                    modalInput.value = "";
+                    if (modalInput.value == "") {
+                        alert("Enter list name!");
+                    }
+                    else {
+                        listTitle.innerHTML = modalInput.value;
+                        modal.style.display = "none"; 
+                        modalInput.value = "";
+                        // dataForLocalStorage();
+                    }
+                    
                 }
                
             });
@@ -179,6 +194,7 @@ addAnotherList.addEventListener("click", addList);
                 listAndButtons.forEach(listAndButton => {
                     listAndButton.onclick = () => {
                         listAndButton.style.display = "none";
+                        // dataForLocalStorage();
                     }
                     
                 })
@@ -268,9 +284,15 @@ addAnotherList.addEventListener("click", addList);
         cardContent.addEventListener("click", () => {
             modal.style.display = "flex";
             saveBtn.onclick = () => {
-                cardContent.innerHTML = modalInput.value;
-                modal.style.display = "none"; 
-                modalInput.value = "";
+                if (modalInput.value == "") {
+                    alert("Enter card name!");
+                }
+                else { 
+                    cardContent.innerHTML = modalInput.value;
+                    modal.style.display = "none"; 
+                    modalInput.value = "";
+                }
+                
             }
         });
     }) 
@@ -303,7 +325,58 @@ addAnotherList.addEventListener("click", addList);
             modal.style.display = "none";
         } 
     }
-
+    // dataForLocalStorage();
 }
 
+//local storage
+// const data = [];
+// function dataForLocalStorage() {
+//     data.length = 0;
+//     const all_column = document.querySelectorAll(".list");
+
+//     all_column.forEach((column, index) => {
+//         const title = column.querySelector(".list-title").textContent;
+//         const cardItems = column.querySelectorAll(".card");
+//         const cardItemsContent = [];
+
+//         cardItems.forEach((item) => {
+//             return cardItemsContent.push(item.textContent);
+//         });
+//         data.push({ index: index, title: title, items: cardItemsContent });
+//     });
+//     localStorage.setItem("data", JSON.stringify(data));
+// }
+
+// window.addEventListener("load", function () {
+//     const dataFromStorage = localStorage.getItem("data");
+//     console.log(dataFromStorage);
+//     const parsedData = JSON.parse(dataFromStorage);
+//     const columns = document.querySelectorAll(".list");
+
+//     parsedData.forEach((column, index) => {
+//         const currAddACard = columns.item(index).querySelector(".add-card-template");
+//         column.items.forEach(item => {
+//             const itemDiv = document.createElement("div");
+//             itemDiv.innerHTML = `<div class="card card-class" draggable="true"><p class="card-content" style="cursor: pointer;">${item}</p><img src="images/close-icon.png" class="close-icon close-icon-card"></div>`;
+//             columns.item(index).insertBefore(itemDiv, currAddACard);
+//         })
+        
+
+        // const removeCards = document.querySelectorAll(".close-icon-card");
+        // let cards = document.querySelectorAll(".card");
+        // removeCards.forEach(removeCard => {
+        //     removeCard.addEventListener("click", () => {
+        //         cards.forEach(card => {
+        //             card.onclick = () => {
+        //                 card.style.display = "none";
+        //             }
+                    
+        //         })
+        //     });
+        // });
+
+
+//     })
+    
+// })
 });
