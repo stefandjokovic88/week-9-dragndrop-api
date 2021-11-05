@@ -1,0 +1,260 @@
+body, html {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(images/bgd.jpg) no-repeat;
+    background-size: 100% 100%;
+    font-size: 20px;
+}
+
+p {
+    margin: 0;
+}
+
+.main {
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+header {
+    display: flex;
+    column-gap: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.trello-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.content {
+    display: flex;
+    column-gap: 10px;
+}
+
+.lists {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 100%;
+}
+
+.list-and-button {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 20%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.list-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold; 
+}
+
+.list-title {
+    cursor: pointer;
+    min-height: 10px;
+    min-width: 100px;
+}
+
+.edit-icon, .close-icon {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.close-icon-card {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.add-another-list {
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 0;
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.add-card-template {
+    text-align: left;
+    background: white;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* card template */
+.card-template {
+    display: none;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.card-template-input {
+    padding: 5px 5px 30px 5px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.add-close {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+}
+
+.add-card {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 0;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+.card-class {
+    border-radius: 5px;
+    min-height: 50px;
+    padding: 5px;
+    cursor: move;
+    overflow-wrap: break-word;
+    background: white;
+    font-weight: bold;
+    position: relative;
+}
+
+.card-class:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+    width: 95%;
+    min-height: 30px;
+}
+
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    row-gap: 40px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.modal-title-content {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 15px;
+}
+
+.close-modal {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.modal-input {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.save {
+    font-weight: bold;
+    border-radius: 5px;
+    border: 0;
+    padding: 7px;
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+    .list-and-button {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    body {
+        font-size: 16px;
+    }
+
+    .list-and-button {
+        width: 40%;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .list-and-button {
+        width: 80%;
+    }
+
+    .modal-content {
+        width: 280px;
+    }
+}

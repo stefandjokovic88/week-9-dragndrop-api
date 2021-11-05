@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <header>
+                <img src="images/favicon.png" alt="trello-icon" class="trello-icon">
+                <p>Trello</p>
+            </header>
+            <div class="content">
+                <div class="lists">
+                    <div class="list-and-button">
+                        <div class="list">
+                            <div class="list-name">
+                                <p class="list-title">Backlog</p>
+                                <div class="icons">
+                                    <img src="images/close-icon.png" alt="close-icon" class="close-icon">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="add-card-template">+ Add a card</button>
+
+                        <!-- card template -->
+                        <div class="card-template">
+                            <input type="text" placeholder="Enter a title for this card..." class="card-template-input" id="card-template-input">
+                            <div class="add-close">
+                                <button class="add-card">Add</button>
+                                <img src="images/close-icon.png" alt="icon-close" class="close">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="list-and-button">
+                        <div class="list">
+                            <div class="list-name">
+                                <p class="list-title">In Progress</p>
+                                <div class="icons">
+                                    <img src="images/close-icon.png" alt="close-icon" class="close-icon">
+                                </div>
+                            </div>  
+                        </div>
+                        <button class="add-card-template">+ Add a card</button>
+                    </div>
+
+                    <div class="list-and-button">
+                        <div class="list">
+                            <div class="list-name">
+                                <p class="list-title">Complete</p>
+                                <div class="icons">
+                                    <img src="images/close-icon.png" alt="close-icon" class="close-icon">
+                                </div>
+                            </div>                          
+                        </div>
+                        <button class="add-card-template">+ Add a card</button>
+                    </div>
+
+                    <div class="list-and-button">
+                        <div class="list">
+                            <div class="list-name">
+                                <p class="list-title">On Hold</p>
+                                <div class="icons">
+                                    <img src="images/close-icon.png" alt="close-icon" class="close-icon">
+                                </div>
+                            </div>                          
+                        </div>
+                        <button class="add-card-template">+ Add a card</button>
+                    </div>
+                </div> 
+
+                <div>
+                    <button class="add-another-list">+ Add another list</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- modal -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <img src="images/close-icon.png" alt="icon-close-modal" class="close-modal">
+                <div class="modal-title-content">
+                    <p>Title:</p>
+                    <input type="text" class="modal-input" placeholder="Enter new title...">
+                    <button class="save">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
